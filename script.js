@@ -1,3 +1,4 @@
+
 let resultsContainer = document.getElementsByClassName("container")[0]
 
 const validateInput = (el) => {
@@ -35,3 +36,20 @@ const generateResults = (searchValue, inputField) => {
         }
     })
 }
+
+
+function debounse(f,time = 500){
+    let timeOut;
+    return (...args)=>{
+        clearTimeout(timeOut);
+
+        timeOut= setTimeout(()=>{
+            f(args[0])
+            
+        },time)
+    }
+}
+
+const debounseInput = debounse((el)=>validateInput(el))
+
+
